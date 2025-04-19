@@ -1,0 +1,65 @@
+:root {
+    --ratio: 1.5;
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+    --s0: 1rem;
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack > * {
+    margin-block: 0;
+}
+
+.stack > * + * {
+    margin-block-start: var(--space, 1.5rem);
+}
+
+.box {
+    --color-light: #fff;
+    --color-dark: #000;
+    --border-thin: var(--s-1);
+    padding: var(--s1);
+    border: var(--border-thin) solid;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.box * {
+    color: inherit;
+}
+
+.box.invert {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
+.center {
+    box-sizing: content-box;
+    margin-inline: auto;
+    padding-inline-start: var(--s1);
+    padding-inline-end: var(--s1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-text {
+    box-sizing: content-box;
+    margin-inline: auto;
+    max-inline-size: var(--measure, 75ch);
+    padding-inline-start: var(--s1);
+    padding-inline-end: var(--s1);
+}
